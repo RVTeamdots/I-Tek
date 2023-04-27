@@ -84,9 +84,7 @@ const AddUser = () => {
       );
       console.log(response.data);
       setSuccess("Offender Added Successfully");
-      setTimeout(function () {
-        window.location.reload();
-      }, 3000);
+     
     } catch (error) {
       console.log(error);
     }

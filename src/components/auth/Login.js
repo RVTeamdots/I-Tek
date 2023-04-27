@@ -75,7 +75,6 @@ const Login = (props) => {
       const loginDetails = await props.auth.userLogin({email:email, password:password, "role":"admin"});
       console.log(loginDetails.data.userName)
       localStorage.setItem("userName", loginDetails.data.userName);
-      window.location.reload()
     }
   };
 
