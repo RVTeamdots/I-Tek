@@ -46,12 +46,9 @@ const EditUser = (props) => {
         `${BACKEND_API_BASE_URL}/user/update?_id=${params.crime_id}`,
         docData
       );
-
+      //window.scrollTo({ top: 0, behavior: 'smooth' });
       console.log(response.data);
       setSuccess("Form Submitted");
-      setTimeout(function () {
-        window.location.reload();
-      }, 3000);
     } catch (error) {
       console.log(error);
     }
