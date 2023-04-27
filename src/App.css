@@ -1,0 +1,161 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.content-wrapper {
+  min-height: 87vh;
+}
+
+.main-header .sidebar-toggle {
+   padding: 0px;
+   border: none;
+   cursor: pointer;
+}
+
+.open>.dropdown-menu{
+  display: block;
+}
+
+body{
+  height: auto;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.error{
+  color: crimson;
+}
+.red{
+  background-color: red;
+}
+
+.content-header {
+  text-align : center;
+}
+.sub-heading{
+  padding: 35px 0px 15px;
+  display: flex;
+  align-items: center;
+}
+.sub-heading a{
+  color:#000000;
+  outline: none;
+  text-decoration: none;
+  box-shadow: none;
+  margin-left: 5px;
+}
+.navbar h2{
+  color: #ffffff;
+}
+
+.skin-blue .main-header .logo {
+  padding: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.skin-blue .main-header .logo img.img-circle {
+ object-fit: cover;
+ margin: 2px 0px;
+ max-width: 100%;
+ height: 96px;
+}
+
+.sidebar-collapse.skin-blue .main-header .logo img.img-circle {
+  width: 40px;
+  margin:30px 0px;
+}
+.skin-blue .sidebar-menu>li.active>a{
+  border-left: none;
+  border-bottom:1px solid #283a42;
+}
+.skin-blue .sidebar-menu>li.active>a.active{
+  background: #3c8dbc;
+}
+.profile-user-img{
+  height: auto;
+  object-fit: cover;
+}
+.box-primary .box-body.box-profile {
+  text-align: center;
+}
+iframe{
+  display: none;
+}
+input{
+  -webkit-background-clip: text !important;
+  -moz-background-clip: text !important;
+}
+
+.content-wrapper .box .content {
+    min-height: inherit;
+    padding:0px 15px;
+}
+
+.edit-user input, .edit-user textarea, .edit-user select{
+  pointer-events:none;
+  -webkit-background-clip: inherit !important;
+ -moz-background-clip: inherit !important;
+  background-color: #cccccc;
+}
+
+.edit-user .Court input, .edit-user .Court textarea, .edit-user .Court select{
+  pointer-events:visible;
+   -webkit-background-clip: text !important;
+  -moz-background-clip: text !important;
+
+}
+button[type="submit"]{
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.table-section button{
+  margin-left: 0px;
+}
+.table-section button.btn{
+  background: transparent;
+  color:#000000;
+  padding: 0px;
+}
+.table-section button.btn-primary{
+  background: #000000;
+  color:#ffffff;
+  padding: 3px 20px;
+}
+.table-section table thead th{
+  background: #3c8dbc;
+  color:#ffffff;
+}
