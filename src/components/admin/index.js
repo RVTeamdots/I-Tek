@@ -3,4 +3,7 @@ export {default as UsersList} from './users/UsersList';
 export {default as AddUser} from './users/AddUser';
 export {default as ViewUser} from './users/ViewUser';
 export {default as EditUser} from './users/EditUser';
-export {default as Agency} from './Agency';
+export {default as AgencyList} from './agency/AgencyList';
+export {default as AddAgency} from './agency/AddAgency';
+export {default as ViewCaseReport} from './users/ViewCaseReport';
+export {default as EditCaseReport} from './users/EditCaseReport';

@@ -36,7 +36,7 @@ const Header = (props) => {
   return (
     <React.Fragment>
       <header className="main-header">
-        {role === "admin" && (
+        {role === "police" && (
           <NavLink to={Routes.DASHBOARD} className="logo">
             <img
               src="/assets/img/admin_police.png"
@@ -49,6 +49,18 @@ const Header = (props) => {
         )}
 
         {role === "user" && (
+          <NavLink to={Routes.DASHBOARD} className="logo">
+            <img
+              src="/assets/img/admin_police.png"
+              alt="logo"
+              className="img-circle"
+            />
+            <span className="logo-mini"></span>
+            <span className="logo-lg"></span>
+          </NavLink>
+        )}
+
+        {role === "court" && (
           <NavLink to={Routes.DASHBOARD} className="logo">
             <img
               src="/assets/img/courtlogo.png"
@@ -64,8 +76,10 @@ const Header = (props) => {
           <button className="sidebar-toggle" onClick={handleToggle}>
             <span className="sr-only">Toggle navigation</span>
           </button>
-          {role === "admin" && <h2>The Nigeria Police</h2>}
-          {role === "user" && <h2>National Judicial Council</h2>}
+          {role === "police" && <h2>The Nigeria Police</h2>}
+          {role === "court" && <h2>National Judicial Council</h2>}
+          {role === "user" && <h2>Police User</h2>}
+
           <div className="navbar-custom-menu">
             <ul className="nav navbar-nav">
               <li
@@ -106,8 +120,6 @@ const Header = (props) => {
                           e.preventDefault();
                           props.auth.logout();
                           history.push(Routes.LOGIN);
-                          localStorage.setItem("userName", "");
-                          localStorage.setItem("email", "");
                           console.log("Logged out");
                         }}
                       >

@@ -13,7 +13,7 @@ const EditUser = (props) => {
   const [success, setSuccess] = useState();
 
   let { role } = jwtDecode(props.auth.accessToken);
-  // console.log(role, "role");
+  console.log(role, "role");
 
   const fetchOffenderDetails = async () => {
     const response = await axios.get(
@@ -69,7 +69,7 @@ const EditUser = (props) => {
             
           )}
           { success ? window.scrollTo({top: 0, left: 0, behavior: 'smooth'}) : '' }
-          <div className={`content ${role === "user" ? 'edit-user' : ''}`}> 
+          <div className={`content ${role === "court" ? 'edit-user' : ''}`}> 
             <form onSubmit={handleSubmit}>
               <div className="crime-form">
                 <div className="row">

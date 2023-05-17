@@ -1237,6 +1237,8 @@ a:focus {
   border-radius: 0;
   box-shadow: none;
   border-color: #d2d6de;
+  position: relative;
+  z-index: 1;
 }
 .form-control:focus {
   border-color: #3c8dbc;
@@ -5042,4 +5044,60 @@ opacity: 0.3;
   top:0px;
   /* bottom: 30px; */
   opacity: 0.3;
+}
+
+.for-court .content-wrapper{
+  position:relative;
+  }
+  .for-court .content-wrapper:after {
+      content: '';
+      background-image: url(/assets/img/courtlogo.png);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      opacity: 0.1;
+      position: absolute;
+      width: 310px;
+      height: 310px;
+      top: 50%;
+      left: 50%;
+      margin: 0 auto;
+      transform: translate(-50%, -50%);
+  }
+
+  .for-police .content-wrapper{
+    position:relative;
+    }
+    .for-police .content-wrapper:after {
+        content: '';
+        background-image: url(/assets/img/police.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        opacity: 0.1;
+        position: absolute;
+        width: 510px;
+        height: 510px;
+        top: 50%;
+        left: 50%;
+        margin: 0 auto;
+        transform: translate(-50%, -50%);
+    }
+    .user-details-section {
+      padding: 20px;
+  }
+  .user-details-section .row {
+    align-items: center;
+}
+.user-details-section .row button {
+  margin-top: 32px;
+}
+button, .btn, table{
+  z-index: 1;
+  position: relative;
+}
+.table-section td a {
+  color: #000;
+  margin-right: 7px;
+  vertical-align: middle;
 }

@@ -13,10 +13,9 @@ const UsersList = (props) => {
   const [crimeId, setCrimeId] = useState("");
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState();
-  console.log(props, "props");
 
   let { role } = jwt_decode(props.auth.accessToken);
-  console.log(role, "role");
+  // console.log(role, "role");
 
   const history = useHistory();
 
@@ -48,7 +47,6 @@ const UsersList = (props) => {
     setAllCases(caseData);
   };
 
-  console.log(allCases, "total offender");
 
   useEffect(() => {
     getCases();
@@ -148,7 +146,7 @@ const UsersList = (props) => {
                 </p>
               )}
 
-              {role === "admin" && error && (
+              {role === "police" && error && (
                 <Link
                   className="btn btn-success "
                   to={Routes.ADMIN_OFFENDER_ADD}

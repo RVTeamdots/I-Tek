@@ -2,8 +2,10 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Routes } from "../../constants";
 import { getAllCases } from "../../services/AdminService";
+import jwt_decode from "jwt-decode";
+import { injectModels } from "../../redux/injectModels";
 
-const Dashboard = () => {
+const Dashboard = (props) => {
   const [allCases, setAllCases] = useState();
   const getCases = async () => {
     const cases = await getAllCases();
@@ -16,6 +18,9 @@ const Dashboard = () => {
   useEffect(() => {
     getCases();
   }, []);
+
+  let { role } = jwt_decode(props.auth.accessToken);
+  console.log(role, "role");
 
   return (
     <div>
@@ -34,76 +39,185 @@ const Dashboard = () => {
         </ol>
       </section>
 
+      {/* adding condition for police user  */}
+
+      {role === "police" && (
+        <section className="content">
+          <div className="row">
+            <div className="col-lg-3 col-xs-6">
+              <div className="small-box bg-blue">
+                <div className="inner">
+                  <h3>{allCases && allCases.length}</h3>
+
+                  <p>Search Registered Offender</p>
+                </div>
+                <div className="icon">
+                  <i className="ion ion-stats-bars"></i>
+                </div>
+                <Link to={Routes.ADMIN_OFFENDER} className="small-box-footer">
+                  More info <i className="fa fa-arrow-circle-right"></i>
+                </Link>
+              </div>
+            </div>
+
+            <div className="col-lg-3 col-xs-6">
+              <div className="small-box bg-green">
+                <div className="inner">
+                  <h3>8</h3>
+
+                  <p>Agencies</p>
+                </div>
+                <div className="icon">
+                  <i className="ion ion-stats-bars"></i>
+                </div>
+                <Link to={Routes.AGENCY} className="small-box-footer">
+                  More info <i className="fa fa-arrow-circle-right"></i>
+                </Link>
+              </div>
+            </div>
+
+            <div className="col-lg-3 col-xs-6">
+              <div className="small-box bg-yellow">
+                <div className="inner">
+                  <h3>{allCases && allCases.length}</h3>
+
+                  <p>Add Offender</p>
+                </div>
+                <div className="icon">
+                  <i className="ion ion-person-add"></i>
+                </div>
+                <Link
+                  to={Routes.ADMIN_OFFENDER_ADD}
+                  className="small-box-footer"
+                >
+                  More info <i className="fa fa-arrow-circle-right"></i>
+                </Link>
+              </div>
+            </div>
+            <div className="col-lg-3 col-xs-6">
+              <div className="small-box bg-red">
+                <div className="inner">
+                  <h3>-</h3>
+
+                  <p>Report New Crime/Incident </p>
+                </div>
+                <div className="icon">
+                  <i className="ion ion-person-add"></i>
+                </div>
+                <Link
+                  to={Routes.ADD_CASE_REPORT}
+                  className="small-box-footer"
+                >
+                  More info <i className="fa fa-arrow-circle-right"></i>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* condition added for court user */}
+
+      {role === "court" && (
+        <section className="content">
+          <div className="row">
+            <div className="col-lg-3 col-xs-6">
+              <div className="small-box bg-blue">
+                <div className="inner">
+                  <h3>{allCases && allCases.length}</h3>
+
+                  <p>Search Registered Offender</p>
+                </div>
+                <div className="icon">
+                  <i className="ion ion-stats-bars"></i>
+                </div>
+                <Link to={Routes.ADMIN_OFFENDER} className="small-box-footer">
+                  More info <i className="fa fa-arrow-circle-right"></i>
+                </Link>
+              </div>
+            </div>
+
+            <div className="col-lg-3 col-xs-6">
+              <div className="small-box bg-green">
+                <div className="inner">
+                  <h3>8</h3>
+
+                  <p>Agencies</p>
+                </div>
+                <div className="icon">
+                  <i className="ion ion-stats-bars"></i>
+                </div>
+                <Link to={Routes.AGENCY} className="small-box-footer">
+                  More info <i className="fa fa-arrow-circle-right"></i>
+                </Link>
+              </div>
+            </div>
+
+            <div className="col-lg-3 col-xs-6">
+              <div className="small-box bg-yellow">
+                <div className="inner">
+                  <h3>{allCases && allCases.length}</h3>
+
+                  <p>Add Offender</p>
+                </div>
+                <div className="icon">
+                  <i className="ion ion-person-add"></i>
+                </div>
+                <Link
+                  to={Routes.ADMIN_OFFENDER_ADD}
+                  className="small-box-footer"
+                >
+                  More info <i className="fa fa-arrow-circle-right"></i>
+                </Link>
+              </div>
+            </div>
+         
+          </div>
+        </section>
+      )}
+
+      {/* adding condition for general user */}
+
+      {role ==="user" && 
       <section className="content">
+   
         <div className="row">
+          <div className="col-lg-3 col-xs-6">
+            <div className="small-box bg-orange">
+              <div className="inner">
+              <h3>8</h3>
+                <p>Add Case Report</p>
+                
+              </div>
+              <div className="icon">
+                <i className="ion ion-stats-bars"></i>
+              </div>
+              <Link to={Routes.ADD_CASE_REPORT} className="small-box-footer">
+                More info <i className="fa fa-arrow-circle-right"></i>
+              </Link>
+            </div>
+          </div>
+
           <div className="col-lg-3 col-xs-6">
             <div className="small-box bg-blue">
               <div className="inner">
-                <h3>{allCases && allCases.length}</h3>
-
-                <p>Search Registered Offender</p>
-              </div>
-              <div className="icon">
-                <i className="ion ion-stats-bars"></i>
-              </div>
-              <Link to={Routes.ADMIN_OFFENDER} className="small-box-footer">
-                More info <i className="fa fa-arrow-circle-right"></i>
-              </Link>
-            </div>
-          </div>
-
-          <div className="col-lg-3 col-xs-6">
-            <div className="small-box bg-green">
-              <div className="inner">
                 <h3>8</h3>
 
-                <p>Agencies</p>
+                <p>Case Report Listing</p>
               </div>
               <div className="icon">
                 <i className="ion ion-stats-bars"></i>
               </div>
-              <Link to={Routes.AGENCY} className="small-box-footer">
+              <Link to={Routes.CASE_REPORT} className="small-box-footer">
                 More info <i className="fa fa-arrow-circle-right"></i>
               </Link>
             </div>
           </div>
-
-          <div className="col-lg-3 col-xs-6">
-            <div className="small-box bg-yellow">
-              <div className="inner">
-                <h3>{allCases && allCases.length}</h3>
-
-                <p>Add Offender</p>
-              </div>
-              <div className="icon">
-                <i className="ion ion-person-add"></i>
-              </div>
-              <Link to={Routes.ADMIN_OFFENDER_ADD} className="small-box-footer">
-                More info <i className="fa fa-arrow-circle-right"></i>
-              </Link>
-            </div>
-          </div>
-
-          {/* <div className="col-lg-3 col-xs-6">
-            <div className="small-box bg-red">
-              <div className="inner">
-                <h3>7</h3>
-
-                <p>Unique Visitors</p>
-              </div>
-              <div className="icon">
-                <i className="ion ion-pie-graph"></i>
-              </div>
-              <Link to="#" className="small-box-footer">
-                More info <i className="fa fa-arrow-circle-right"></i>
-              </Link>
-            </div>
-          </div>
-  */}
-        </div>
+        </div> 
       </section>
+}
     </div>
   );
 };
 
-export default Dashboard;
+export default injectModels(["auth"])(Dashboard);

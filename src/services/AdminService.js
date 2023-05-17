@@ -31,6 +31,21 @@ export const getAllCases = async () => {
 };
 
 
+export const getAllCrime = async () => {  
+    try{
+        const response = await axios.get(`${BACKEND_API_BASE_URL}/crime/view-all-crime`, {headers:{"Content-Type":"application/json", "Authorization":"Bearer "+JWT.getJwt()}});
+        if(response.status === 200) {
+            return response.data;  
+        } else {
+            return Promise.reject(new Error("Internal server error"));   
+        }
+    } catch(err){
+        return Promise.reject(err);
+    };
+
+};
+
+
 export const getMe = async () =>{
     try{
         const response = await axios.get(`${BACKEND_API_BASE_URL}/user/getme`, {headers:{"Content-Type":"application/json", "Authorization":"Bearer "+JWT.getJwt()}});
@@ -43,6 +58,20 @@ export const getMe = async () =>{
         return Promise.reject(err);
     };
 }
+
+export const getAllAgencies = async () => {   
+    try{ 
+        const response = await axios.get(`${BACKEND_API_BASE_URL}/agency/view-all-agency`, {headers:{"Content-Type":"application/json", "Authorization":"Bearer "+JWT.getJwt()}});
+        if(response.status === 200) {
+            return response.data;  
+        } else {
+            return Promise.reject(new Error("Internal server error"));   
+        }
+    } catch(err){
+        return Promise.reject(err);
+    };
+
+};
 
 
 
