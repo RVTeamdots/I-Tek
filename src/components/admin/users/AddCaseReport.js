@@ -125,12 +125,12 @@ const AddCaseReport = () => {
                       </label>
                       <select
                         className="form-select form-control"
-                        id="city-state"
+                        id="crState"
                         name="crState"
                         onChange={handleInputChange}
                         required
                       >
-                        <option value="DEFAULT">
+                        <option value="">
                           -- Select a city/state --
                         </option>
                         <option value="Abia">Abia</option>
