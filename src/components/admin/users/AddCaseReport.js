@@ -128,6 +128,7 @@ const AddCaseReport = () => {
                         id="city-state"
                         name="crState"
                         onChange={handleInputChange}
+                        required
                       >
                         <option value="DEFAULT">
                           -- Select a city/state --
