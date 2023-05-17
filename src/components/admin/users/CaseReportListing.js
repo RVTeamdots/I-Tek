@@ -181,7 +181,7 @@ const CaseReportListing = (props) => {
                         </button>
                         <Link
                             className="btn btn-danger"
-                            to={Routes.CASE_REPORT}
+                            to={Routes.DASHBOARD}
                           >
                             Clear
                           </Link>
