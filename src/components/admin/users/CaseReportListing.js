@@ -179,13 +179,13 @@ const CaseReportListing = (props) => {
                         <button type="submit" className="btn btn-primary">
                           Search
                         </button>
-                        <button
-                          type="button"
-                          onClick={handleClear}
-                          className="btn btn-danger"
-                        >
-                          Clear
-                        </button>
+                        <Link
+                            className="btn btn-danger"
+                            to={Routes.CASE_REPORT}
+                          >
+                            Clear
+                          </Link>
+                        
                       </div>
                       </div>
                     </div>

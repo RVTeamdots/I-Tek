@@ -13,7 +13,7 @@ import CaseReportListing from './components/admin/users/CaseReportListing';
 
 function App() {
   return (
-    <Router forceRefresh={true}>
+    <Router>
         <Switch> 
           <CustomAuthRoute exact  path={Routes.DEFAULT} component={Login} />
           <CustomAuthRoute exact  path={Routes.LOGIN} component={Login} />

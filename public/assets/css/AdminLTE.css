@@ -5128,6 +5128,12 @@ button, .btn, table{
     font-size: 14px;
     margin: 7px 0px;
 }
+a.btn.btn-danger {
+  margin-top: 32px;
+  margin-left: 4px;
+  border-radius: 0px;
+  padding: 3px 20px;
+}
 @media (min-width: 768px) and (max-width: 991px) {
   .viewcase-report-section .box-inner {
       width:100%;
