@@ -10,7 +10,7 @@ import { getAllCases } from "../../../services/AdminService";
 const UsersList = (props) => {
   const [error, setError] = useState(null);
 
-  const [crimeId, setCrimeId] = useState("");
+  const [offenderId, setOffenderId] = useState("");
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState();
 
@@ -71,10 +71,10 @@ const UsersList = (props) => {
                     <input
                       type="text"
                       id="userId"
-                      value={crimeId}
+                      value={offenderId}
                       className="form-control"
                       placeholder="Enter Unique Crime ID"
-                      onChange={(e) => setCrimeId(e.target.value)}
+                      onChange={(e) => setOffenderId(e.target.value)}
                     />
                     <button type="submit" className="btn btn-primary">
                       Search

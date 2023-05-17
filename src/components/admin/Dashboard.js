@@ -1,22 +1,29 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Routes } from "../../constants";
-import { getAllCases } from "../../services/AdminService";
+import { getAllCases,getAllCrime } from "../../services/AdminService";
 import jwt_decode from "jwt-decode";
 import { injectModels } from "../../redux/injectModels";
 
 const Dashboard = (props) => {
   const [allCases, setAllCases] = useState();
+  const [allCrime, setAllCrime] = useState();
   const getCases = async () => {
     const cases = await getAllCases();
     const caseData = cases.data;
     setAllCases(caseData);
+  };
+  const getCrime = async () => {
+    const crimes = await getAllCrime();
+    const crimeData = crimes.data;
+    setAllCrime(crimeData);
   };
 
   // console.log(allCases, "total offender");
 
   useEffect(() => {
     getCases();
+    getCrime();
   }, []);
 
   let { role } = jwt_decode(props.auth.accessToken);
@@ -27,7 +34,7 @@ const Dashboard = (props) => {
       <section className="content-header">
         <h1>
           Dashboard
-          <small>Control panel</small>
+          
         </h1>
         <ol className="breadcrumb">
           <li>
@@ -97,7 +104,7 @@ const Dashboard = (props) => {
             <div className="col-lg-3 col-xs-6">
               <div className="small-box bg-red">
                 <div className="inner">
-                  <h3>-</h3>
+                  <h3>{allCrime && allCrime.length}</h3>
 
                   <p>Report New Crime/Incident </p>
                 </div>

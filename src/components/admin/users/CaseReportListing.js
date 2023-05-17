@@ -56,7 +56,10 @@ const CaseReportListing = (props) => {
     setLoading(false);
   };
 
-  const handleClear = () => {};
+  const handleClear = () => {
+    history.go(0);
+
+  };
 
   const getCrimes = async () => {
     const cases = await getAllCrime();
@@ -140,7 +143,7 @@ const CaseReportListing = (props) => {
                           <option value="Murder">Murder</option>
                           <option value="Rape">Rape</option>
                           <option value="Extortion">Extortion</option>
-                          <option value="theft">Theft</option>
+                          <option value="Theft">Theft</option>
                           <option value="Other">Other</option>
                         </select>
                       </div>
@@ -189,44 +192,7 @@ const CaseReportListing = (props) => {
                   </form>
                 </div>
 
-                {/* <form  className="form-inline">
-                    <label htmlFor="incidentId">Incident ID:</label>
-                    <input
-                      type="text"
-                      id="incidentId"
-                      className="form-control"
-                      placeholder="Enter Unique Incident ID"
-                      
-                    />
-                    <button type="submit" className="btn btn-primary">
-                      Search
-                    </button>
-                  </form>
-                  <form  className="form-inline">
-                    <label htmlFor="crimeDate">Crime Date:</label>
-                    <input
-                      type="text"
-                      id="crimeDate"
-                      className="form-control"
-                      placeholder="Enter Crime Date"
-
-                    />
-                    <button type="submit" className="btn btn-primary">
-                      Search
-                    </button>
-                  </form>
-                  <form  className="form-inline">
-                    <label htmlFor="userId">Crime Type:</label>
-                    <input
-                      type="text"
-                      id="userId"
-                      className="form-control"
-                      placeholder="Enter Crime Type"
-                    />
-                    <button type="submit" className="btn btn-primary">
-                      Search
-                    </button>
-                  </form> */}
+               
                 <div className="table-section ml-3 mr-3">
                   <div className="table-responsive">
                     <table className="table table-hover table-bordered ">
@@ -235,6 +201,7 @@ const CaseReportListing = (props) => {
                           <th>No.</th>
                           <th>Case/Incident Id</th>
                           <th>Reported By</th>
+                          <th>Witness By</th>
                           <th>Crime Date</th>
                           <th>Reported Date</th>
                           <th>Crime Type</th>
@@ -269,6 +236,7 @@ const CaseReportListing = (props) => {
                                   </td>
 
                                   <td>{item.caseReportedBy}</td>
+                                  <td>{item.witnessedBy}</td>
                                   <td>{ukFormattedDate.slice(0, 10)}</td>
                                   <td>{formattedReportedDate.slice(0, 10)}</td>
                                   <td>{item.typeOfCrime}</td>
@@ -304,7 +272,7 @@ const CaseReportListing = (props) => {
                           </React.Fragment>
                         ) : (
                           <tr>
-                            <td colSpan="10 mt-2">No results found!</td>
+                            <td colSpan="10 mt-2" className="text-center">No results found!</td>
                           </tr>
                         )}
                       </tbody>

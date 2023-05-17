@@ -117,6 +117,20 @@ const EditCaseReport = (props) => {
                   </div>
                   <div className="col-md-4">
                     <div className="mb-3">
+                      <label htmlFor="city-state" className="form-label">
+                        State:
+                      </label>
+                      <input
+                        className="form-select form-control"
+                        id="crState"
+                        name="crState"
+                        value={caseData && caseData.state}
+                        disabled
+                      />
+                    </div>
+                  </div>
+                  <div className="col-md-4">
+                    <div className="mb-3">
                       <label htmlFor="crTelephone" className="form-label">
                         Telephone No:
                       </label>
